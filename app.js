@@ -1,7 +1,6 @@
 let express = require('express');
-let bodyparser = require('body-parser');
-
-app = express();
+let app = express();
+let io = require('socket-io')(app);
 
 app.get('/', function (req, res) {
     res.send('home');
