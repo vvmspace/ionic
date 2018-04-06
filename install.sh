@@ -1,3 +1,3 @@
 #!/bin/bash
-sudo npm i supervisor
+sudo npm i -g supervisor
 npm i
