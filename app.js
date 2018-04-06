@@ -1,9 +1,9 @@
-let express = require('express');
-let app = express();
-let io = require('socket-io')(app);
+let app = require('express')();
+let http = require('http').Server(app);
+let io = require('socket.io')(http);
 
 app.get('/', function (req, res) {
-    res.send('home');
+    res.sendFile(__dirname + '/index.html');
 });
 
 app.listen(7070, function () {
