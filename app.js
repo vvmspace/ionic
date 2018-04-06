@@ -1,11 +1,14 @@
-let app = require('express')();
-let http = require('http').Server(app);
-let io = require('socket.io')(http);
+let express = require('express');
+let app     = express();
+let http  = app.listen(7070);
+let io      = require('socket.io').listen(http);
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
-app.listen(7070, function () {
-    console.log('Listening port 7070');
+io.on('connection', function (socket) {
+    socket.on('data', function (data) {
+        io.emit('data', data);
+    })
 });

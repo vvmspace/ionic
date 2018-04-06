@@ -5,6 +5,26 @@
     <title>Express</title>
 </head>
 <body>
-    The simplest
+    <div>The simplest</div>
+    <input type="text" id="t" />
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            let socket = io();
+            socket.on('data', function(msg){
+                if(msg.event === 'tChange'){
+                    $('#t').val(msg.text);
+                }
+            });
+            $('#t').on('keyup', function () {
+               data = {
+                    event: 'tChange',
+                    text: $(this).val()
+               };
+               socket.emit('data', data);
+            });
+        });
+    </script>
 </body>
 </html>
