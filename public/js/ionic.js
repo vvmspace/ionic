@@ -19,11 +19,9 @@ class Ionic{
     }
 
     receiver(data){
-        let boom = this.booms[data.event];
-        if(boom){
+        if(typeof this.booms[data.event] === 'function'){
+            let boom = this.booms[data.event];
             boom(data.data);
-        }else{
-            console.log('Undefined event', data.event);
         }
     }
 
