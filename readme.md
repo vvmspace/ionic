@@ -6,21 +6,26 @@
 
 **Установка**
 
-1.1 Установка с NodeJS (Ubuntu):
+Установка с NodeJS (Ubuntu):
 
 ```
 git clone https://github.com/vvmspace/ionic && cd ionic && ./install-nodejs-ubuntu.sh && ./install.sh
 
 ```
 
-1.2 Установка без NodeJS (Ubuntu):
+Установка без NodeJS (Ubuntu):
 
 ```
 git clone https://github.com/vvmspace/ionic && cd ionic && ./install.sh
 ```
 
+**Запуск**
 
-2 Автозапуск:
+```
+./run.sh
+```
+
+**Автозапуск:**
 
 В /etc/rc.local пропишите
 
@@ -28,4 +33,29 @@ git clone https://github.com/vvmspace/ionic && cd ionic && ./install.sh
 cd /path_to/ionic && ./run.sh
 ```
 
-продолжение следует
+**Использование на front'е**
+
+```
+    <script src="/js/socket.io-1.2.0.js"></script>
+    <script src="/js/ionic.js"></script>
+    <script>
+    ionic = new Ionic();
+    // или Ionic('host:port');
+    
+    // Обработка событий:  
+    ionic.boom('событие', function(){
+        // функция, по аналогии с .on
+    });
+    
+    // Отправка информации о событии всем подключенным к серверу клиентам:
+    ionic.impulse('событие', {
+        da:'ta',
+        something:'else'
+    });
+    
+    </script>
+
+```
+
+**Пишите**
+https://vk.com/it007
