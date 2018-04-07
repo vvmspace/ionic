@@ -3,7 +3,7 @@ class Ionic{
     constructor(host = null){
         this.socket = io(Ionic.getHost(host));
         this.booms = [];
-        this.socket.on('data', this.receiver);
+        this.socket.on('data', (data) => {this.receiver(data) });
     }
 
     static getHost(host){
