@@ -18,15 +18,10 @@
                 $('#t').val(data.text);
             });
 
-            // let socket = io();
-            // socket.on('data', function(msg){
-            //     if(msg.event === 'tChange'){
-            //         $('#t').val(msg.text);
-            //     }
-            // });
             $('#t').on('keyup', function () {
-                ionic.impulse('tChange', $(this).val());
+                ionic.impulse('tChange', {text: $(this).val()});
             });
+
         });
     </script>
 </body>
