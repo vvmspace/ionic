@@ -9,20 +9,23 @@
     <input type="text" id="t" />
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/js/ionic.js"></script>
     <script>
         $(function () {
-            let socket = io();
-            socket.on('data', function(msg){
-                if(msg.event === 'tChange'){
-                    $('#t').val(msg.text);
-                }
+
+            let ionic = new Ionic();
+            ionic.boom('tChange', function (data) {
+                $('#t').val(data.text);
             });
+
+            // let socket = io();
+            // socket.on('data', function(msg){
+            //     if(msg.event === 'tChange'){
+            //         $('#t').val(msg.text);
+            //     }
+            // });
             $('#t').on('keyup', function () {
-               data = {
-                    event: 'tChange',
-                    text: $(this).val()
-               };
-               socket.emit('data', data);
+                ionic.impulse('tChange', $(this).val());
             });
         });
     </script>

@@ -3,9 +3,7 @@ let app     = express();
 let http  = app.listen(7070);
 let io      = require('socket.io').listen(http);
 
-app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/index.html');
-});
+app.use(express.static('public'));
 
 io.on('connection', function (socket) {
     socket.on('data', function (data) {
