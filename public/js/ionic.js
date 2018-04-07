@@ -1,7 +1,6 @@
 class Ionic{
 
     constructor(host = null){
-        console.log(Ionic.getHost());
         this.socket = io(Ionic.getHost(host));
         this.booms = [];
         this.socket.on('data', this.receiver);
@@ -20,14 +19,16 @@ class Ionic{
     }
 
     receiver(data){
-        console.log(this.booms);
-        this.booms[data.event](data.data);
+        let boom = this.booms[data.event];
+        if(boom){
+            boom(data.data);
+        }else{
+            console.log('Undefined event', data.event);
+        }
     }
 
     boom(event, callback){
-        console.log(event);
         this.booms[event] = callback;
-        console.log(this.booms);
     }
 
     impulse(event, data){
