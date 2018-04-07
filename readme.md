@@ -33,7 +33,7 @@ git clone https://github.com/vvmspace/ionic && cd ionic && ./install.sh
 cd /path_to/ionic && ./run.sh
 ```
 
-**Использование на front'е**
+**Использование**
 
 Клиент ionic.js лежит в public/js
 
@@ -63,6 +63,11 @@ http://host:7070/js/ionic.js
     </script>
 
 ```
+
+**Отправка сокета из PHP**
+
+Пример лежит тут: https://github.com/vvmspace/ionicphp
+
 
 **Пишите**
 https://vk.com/it007
