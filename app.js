@@ -6,8 +6,6 @@ let io      = require('socket.io').listen(http);
 
 app.use(express.static('public'));
 
-io.set('origins', '*.*');
-
 io.on('connection', (socket) => {
     socket.on('data', (data) => {
         io.emit('data', data);
