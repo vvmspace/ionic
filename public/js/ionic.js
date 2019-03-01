@@ -38,4 +38,4 @@ class Ionic{
 
 }
 
-if (module) module.exports = Ionic
+if (module) module.exports = Ionic;
