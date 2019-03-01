@@ -37,3 +37,5 @@ class Ionic{
     }
 
 }
+
+if (module) module.exports = Ionic
