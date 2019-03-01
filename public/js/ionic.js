@@ -4,6 +4,8 @@ class Ionic{
         this.socket = io(Ionic.getHost(host));
         this.booms = [];
         this.socket.on('data', (data) => {this.receiver(data) });
+        this.on = this.boom;
+        this.off = this.impulse;
     }
 
     static getHost(host){
@@ -35,7 +37,7 @@ class Ionic{
             data: data
         });
     }
-
+    
 }
 
 if (module) module.exports = Ionic;
